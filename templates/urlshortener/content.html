@@ -1,0 +1,22 @@
+{% load rest_framework %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Snippet</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+<body>
+    <h1>Snippet content</h1>
+    <div class="container">
+        <div>
+            
+            {% if message.content %}
+                {{ message.content }}
+            {% else %}
+                {{ message}}
+            {% endif %} 
+        </div>
+    </div>
+</body>
+</html>

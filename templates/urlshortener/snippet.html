@@ -1,0 +1,25 @@
+{% load rest_framework %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Snippet</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+<body>
+    <h1>Snippet</h1>
+    <div class="container">
+        <form class="" action="{% url 'PasteLockly:create_Snippet_Urls' %}" method="POST" enctype="multipart/form-data" >
+            {% csrf_token %}
+                {% render_form serializer template_pack='rest_framework/vertical' %}
+
+            <button type="submit" class="btn btn-default">Submit</button>
+
+        </form>
+    </div>
+    {% comment %} {% if short_url %}
+        <p>Short URL: <a href="{% url 'get_Short_Urls' short_url.short_url %}">{{ short_url.short_url }}</a></p>
+    {% endif %} {% endcomment %}
+   
+</body>
+</html>

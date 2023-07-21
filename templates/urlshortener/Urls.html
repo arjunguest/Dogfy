@@ -1,0 +1,23 @@
+{% load rest_framework %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+<body>
+    <h1>URL Shortener</h1>
+    <form class="form-inline" action="{% url 'Shortly:Create_Short_Urls' %}" method="post">
+        {% csrf_token %}
+        {% render_form serializer %}
+
+        <button type="submit" class="btn btn-default">Shorten URL</button>
+
+    </form>
+    {% if short_url %}
+        <p>Short URL: <a href="{% url 'Shortly:get_Short_Urls' short_url.short_url %}">{{ short_url.short_url }}</a></p>
+    {% endif %}
+   
+</body>
+</html>
